@@ -54,7 +54,7 @@
                         Grid.Column="1"
                         Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"
                         Grid.Row="1"
-                        Text="2.0 preview 1"/>
+                        Text="2"/>
                         <TextBlock Margin="0,0,20,5" Grid.Row="2" x:Uid="Version2" Text="UTE Variant"/>
                         <TextBlock 
 						Name="Version2"
@@ -62,7 +62,7 @@
                         Grid.Column="1"
                         Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"
                         Grid.Row="2"
-                        Text="WASDK"/>
+                        Text="23H2"/>
                         <TextBlock Margin="0,0,20,5" Grid.Row="3" x:Uid="InstalledOn" Text="Build Date"/>
                         <TextBlock 
 						Name="InstalledOn"
@@ -70,7 +70,7 @@
                         Grid.Column="1"
                         Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"
                         Grid.Row="3"
-                        Text="09/10/2023"/>
+                        Text="21/10/2023"/>
                         <TextBlock Margin="0,0,20,5" Grid.Row="4" x:Uid="OSBuild" Text="Build"/>
                         <TextBlock 
 						Name="Build"
@@ -78,7 +78,7 @@
                         Grid.Column="1"
                         Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"
                         Grid.Row="4"
-                        Text="2310.09.0"/>
+                        Text="2.0.231021000"/>
                     </Grid>
                 </Expander>
 

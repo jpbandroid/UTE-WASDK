@@ -17,7 +17,7 @@
     <PackageCertificateThumbprint>76F4C597169FFF8AFCFB3977DD8AFB4F1F453B50</PackageCertificateThumbprint>
     <AppxPackageSigningEnabled>True</AppxPackageSigningEnabled>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>2.0-pre1</Version>
+    <Version>2.0.231021000</Version>
     <AssemblyVersion>2.0</AssemblyVersion>
     <FileVersion>2.0</FileVersion>
   </PropertyGroup>

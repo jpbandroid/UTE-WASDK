@@ -54,8 +54,8 @@
                         Grid.Column="1"
                         Foreground="{ThemeResource SystemControlDisabledBaseMediumLowBrush}"
                         Grid.Row="1"
-                        Text="2"/>
-                        <TextBlock Margin="0,0,20,5" Grid.Row="2" x:Uid="Version2" Text="UTE Variant"/>
+                        Text="2.0"/>
+                        <TextBlock Margin="0,0,20,5" Grid.Row="2" x:Uid="Version2" Text="Build semester"/>
                         <TextBlock 
 						Name="Version2"
                         Margin="0,0,0,5"

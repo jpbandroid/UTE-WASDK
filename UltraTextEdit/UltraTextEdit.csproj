@@ -75,6 +75,7 @@
     <Content Remove="Assets\WindowIcon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Remove="Dialogs\iOd.xaml" />
     <None Remove="VRAWindow.xaml" />
   </ItemGroup>
 
@@ -99,6 +100,9 @@
     <None Update="appsettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <Page Update="Dialogs\iOd.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Update="VRAWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

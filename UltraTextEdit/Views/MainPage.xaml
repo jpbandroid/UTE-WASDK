@@ -304,6 +304,26 @@
                                 </AppBarToggleButton.Icon>
                             </AppBarToggleButton>
                             <AppBarSeparator />
+                            <AppBarButton
+Click="AddImageButton_Click"
+ToolTipService.ToolTip="Add image">
+                                <FontIcon FontSize="17" Glyph="&#xE8B9;" />
+                            </AppBarButton>
+                            <AppBarButton
+x:Name="AddLinkButton"
+ToolTipService.ToolTip="Add link">
+                                <Button.Content>
+                                    <FontIcon FontSize="17" Glyph="&#xE71B;" />
+                                </Button.Content>
+                                <Button.Flyout>
+                                    <Flyout Placement="Bottom">
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBox x:Name="hyperlinkText" PlaceholderText="Link" AllowFocusOnInteraction="True"/>
+                                            <Button Margin="0,10,0,0" Click="AddLinkButton_Click">Add hyperlink to selected text</Button>
+                                        </StackPanel>
+                                    </Flyout>
+                                </Button.Flyout>
+                            </AppBarButton>
                         </controls:TabbedCommandBarItem>
                         <controls:TabbedCommandBarItem Header="Help" Background="Transparent">
                             <AppBarButton Icon="Help" Label="Open Version Reporter Applet" Click="vraopen"/>

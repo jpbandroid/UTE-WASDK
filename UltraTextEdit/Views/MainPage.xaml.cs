@@ -12,6 +12,8 @@ using WinRT;
 using Microsoft.Graphics.Canvas.Text;
 using Windows.UI;
 using Microsoft.UI.Xaml.Media;
+using UltraTextEdit.Dialogs;
+using Microsoft.UI.Xaml.Markup;
 
 namespace UltraTextEdit.Views;
 
@@ -438,5 +440,50 @@ public sealed partial class MainPage : Page
 
 
         window.Activate();
+    }
+
+    private async void AddImageButton_Click(object sender, RoutedEventArgs e)
+    {
+        // Open an image file.
+        FileOpenPicker open = new();
+        open.SuggestedStartLocation = PickerLocationId.DocumentsLibrary;
+        open.FileTypeFilter.Add(".png");
+        open.FileTypeFilter.Add(".jpg");
+        open.FileTypeFilter.Add(".jpeg");
+
+        StorageFile file = await open.PickSingleFileAsync();
+
+        if (file != null)
+        {
+            using IRandomAccessStream randAccStream = await file.OpenAsync(FileAccessMode.Read);
+            var properties = await file.Properties.GetImagePropertiesAsync();
+            int width = (int)properties.Width;
+            int height = (int)properties.Height;
+
+            iOd dialog = new()
+            {
+                DefaultWidth = width,
+                DefaultHeight = height
+            };
+
+            ContentDialogResult result = await dialog.ShowAsync();
+
+            if (result == ContentDialogResult.Primary)
+            {
+                editor.Document.Selection.InsertImage((int)dialog.DefaultWidth, (int)dialog.DefaultHeight, 0, VerticalCharacterAlignment.Baseline, string.IsNullOrWhiteSpace(dialog.Tag) ? "Image" : dialog.Tag, randAccStream);
+                return;
+            }
+
+            // Insert an image
+            editor.Document.Selection.InsertImage(width, height, 0, VerticalCharacterAlignment.Baseline, "Image", randAccStream);
+        }
+    }
+    private void AddLinkButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (Windows.Foundation.Metadata.ApiInformation.IsPropertyPresent("Windows.UI.Xaml.FrameworkElement", "AllowFocusOnInteraction"))
+            hyperlinkText.AllowFocusOnInteraction = true;
+        editor.Document.Selection.Link = $"\"{hyperlinkText.Text}\"";
+        editor.Document.Selection.CharacterFormat.ForegroundColor = (Color)XamlBindingHelper.ConvertValue(typeof(Color), "#6194c7");
+        AddLinkButton.Flyout.Hide();
     }
 }
